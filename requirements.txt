@@ -1,0 +1,5 @@
+# Runtime dependencies only — these go into the Docker image later.
+# Versions are PINNED so every build (your laptop, CI, prod) is reproducible.
+fastapi==0.139.0
+uvicorn[standard]==0.51.0
+pydantic-settings==2.14.2

@@ -1,0 +1,12 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+
+# Local environment overrides (never commit secrets)
+.env
+
+# OS / editor
+.DS_Store
+.vscode/
