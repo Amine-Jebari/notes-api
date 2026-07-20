@@ -5,6 +5,8 @@ thin on purpose: configure logging, create the FastAPI app, plug in the routers.
 Real logic lives in the modules it imports.
 """
 
+"commend added for testing"
+
 import logging
 
 from fastapi import FastAPI
