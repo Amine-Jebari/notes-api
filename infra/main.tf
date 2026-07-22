@@ -26,11 +26,29 @@ provider "aws" {
 }
 
 
-resource "aws_s3_bucket" "notes" {
+resource "aws_s3_bucket" "notes_storage" {
   bucket = var.bucket_name
 }
 
 resource "aws_sqs_queue" "notes_events" {
   name = var.queue_name
+}
+
+
+resource "aws_dynamodb_table" "notes_table" {
+  name         = var.table_name
+  billing_mode = "PAY_PER_REQUEST"
+  hash_key     = "note_id"
+
+  attribute {
+    name = "note_id"
+    type = "S"
+  }
+}
+
+
+moved {
+  from = aws_s3_bucket.notes
+  to   = aws_s3_bucket.notes_storage
 }
 

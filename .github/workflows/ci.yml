@@ -47,3 +47,26 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
+  terraform:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./infra
+      
+    steps:
+      - name: check out the code
+        uses: actions/checkout@v4
+      
+      - name: Set up terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.14.4"
+      
+      - name: Check formatting
+        run: terraform fmt -check -recursive
+
+      - name: Initialize
+        run:  terraform init -backend=false
+
+      - name: Validate
+        run: terraform validate

@@ -17,3 +17,8 @@ variable "queue_name" {
   type    = string
   default = "notes-events"
 }
+
+variable "table_name" {
+  type    = string
+  default = "notes-table-storage"
+}

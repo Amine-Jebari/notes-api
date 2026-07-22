@@ -10,3 +10,10 @@ __pycache__/
 # OS / editor
 .DS_Store
 .vscode/
+
+# Terraform
+infra/.terraform/
+infra/*.tfstate
+infra/*.tfstate.*
+
+
