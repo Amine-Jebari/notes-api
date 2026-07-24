@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: notes-config
+data:
+  APP_NAME: Notes API          # make it visibly different, e.g. "Notes API (k8s)" — so you can SEE it land
+  ENVIRONMENT: production    # overrides the default "development"
+  LOG_LEVEL: DEBUG             # try DEBUG
