@@ -1,0 +1,38 @@
+config:
+  appName: "Notes API"
+  environment: production
+  logLevel: DEBUG
+
+
+image:
+  repository: notes-api
+  tag: local
+  pullPolicy: IfNotPresent
+
+
+app:
+  name: notes-api
+  port: 8000
+
+service:
+  type: ClusterIP
+  port: 80
+
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 64Mi
+  limits:
+    cpu: 500m
+    memory: 128Mi
+
+
+autoscaling:
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 50
+
+secret: 
+  name: notes-secrets
+  key: API_KEY
